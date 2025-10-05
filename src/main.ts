@@ -7,12 +7,12 @@ console.log("🎮 CMPM 121 - Starting...");
 
 // Simple counter for demonstration
 // deno-lint-ignore prefer-const
-let counter: number = 0;
+let counter: number = 2;
 
 // Create basic HTML structure
 document.body.innerHTML = `
   <h1>CMPM 121 Project</h1>
-  <p>Counter: <span id="counter">0</span></p>
+  <p>Counter: <span id="counter"> ${counter} </span></p>
   <button id="increment">Click Me!</button>
 `;
 
@@ -22,5 +22,11 @@ const counterElement = document.getElementById("counter")!;
 
 button.addEventListener("click", () => {
   // This looks like to a good place to add some logic!
+  // increments counter number variable
+  counter++;
+  // counterElement references the HTML element with the id "counter", set in the span html line
+  // counter.toString() convers the num value of counter into a string since innerText expects a string
+  // counterElement.innerText sets the visible text inside span id="counter" to the current value of counter
+  counterElement.innerText = counter.toString();
   console.log("I have these thingies:", button, counterElement, counter);
 });
